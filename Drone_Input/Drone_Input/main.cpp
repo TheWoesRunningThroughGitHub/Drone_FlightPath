@@ -80,7 +80,7 @@ int main()
 		Act++; //increases to create the next line
 
 		//Loiter
-		FlightFile << Act << "	0	3	19	0.00000000	0.00000000	0.00000000	0.00000000	" << Lat << "	" << Lon << "	" << Alt << "	1" << endl;
+		FlightFile << Act << "	0	3	19	10.00000000	0.00000000	0.00000000	0.00000000	" << Lat << "	" << Lon << "	" << Alt << "	1" << endl;
 		//note - 19 is the loiter command action
 		Act++; //increases to create the next line
 
