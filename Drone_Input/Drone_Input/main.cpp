@@ -27,7 +27,7 @@ using namespace std;
 
 int main()
 {
-	double Lat, Lon, Alt; //latitude, longitude, altitude
+	long double Lat, Lon, Alt; //latitude, longitude, altitude
 	bool AddLines = true; //loops
 
 	ofstream FlightFile; //create waypoint file
