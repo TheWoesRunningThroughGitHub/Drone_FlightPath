@@ -22,3 +22,6 @@ double Coords2Meters(double lat1, double lon1, double lat2, double lon2)
 //{
 //
 //}
+
+// Length in meters of 1° of latitude = always 111.32 km
+//Length in meters of 1° of longitude = 40075 km * cos(latitude) / 360

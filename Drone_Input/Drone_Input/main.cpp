@@ -51,7 +51,7 @@ int main()
 	cin >> Alt;
 
 	FlightFile << "0	1	0	16	0	0	0	0	" << Lat << "	" << Lon << "	" << Alt << "	1" << endl; //Line 2 (Home Position)
-	FlightFile << "1	0	3	22	0.00000000	0.00000000	0.00000000	0.00000000	" << Lat << "	" << Lon << "	" << Alt << "	1" << endl; //Line 3 (Launch)
+	FlightFile << "1	0	3	22	0.00000000	0.00000000	0.00000000	0.00000000	0.00000000	 0.00000000 	" << Alt << "	1" << endl; //Line 3 (Launch)
 
 	cout << endl << "Begin grid:" << endl;
 
@@ -95,7 +95,7 @@ int main()
 	}
 
 	//Return to launch
-	FlightFile << Act << "	0	3	20	0.00000000	0.00000000	0.00000000	0.00000000	" << Lat << "	" << Lon << "	" << Alt << "	1" << endl;
+	FlightFile << Act << "	0	3	20	0.00000000	0.00000000	0.00000000	0.00000000	0.00000000	0.00000000	0.00000000	1" << endl;
 
 
 	FlightFile.close();
