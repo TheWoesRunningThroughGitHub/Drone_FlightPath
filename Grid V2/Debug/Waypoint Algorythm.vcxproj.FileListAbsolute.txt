@@ -1,0 +1,2 @@
+C:\Users\Diego\Documents\Visual Studio Codes\Waypoint Algorythm\Debug\Waypoint Algorythm.exe
+C:\Users\Diego\Documents\Visual Studio Codes\Waypoint Algorythm\Debug\Waypoint Algorythm.pdb
