@@ -8,7 +8,7 @@ void ReadHomeLocation(long double &Start_Latitude,long double &Start_Longitud) {
 	ifstream HomeFile;
 	string ignore; 
 
-	HomeFile.open("home1.waypoints");
+	HomeFile.open("home2.waypoints");
 
 	getline(HomeFile,ignore);
 

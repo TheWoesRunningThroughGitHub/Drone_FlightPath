@@ -29,15 +29,16 @@ double Coords2Meters(double lat1, double lon1, double lat2, double lon2)
 
 // arcos ((1 /40075 ) * X * (360))
 
-double Meters2CoordsY(double Y)
+double Meters2CoordsY(double Y, double spaceingY)
 {
 	//return (1 / 111320.0) * Y; //from meters to lat
-	//return ((0.000045/5) * Y);
-	return (5 / 111110.0) * acos((0.00006 / 5) * Y);
+	return (spaceingY * (0.00000569) * acos((0.00006 / 5) * Y));
+	//return (5 / 111110.0) * acos((0.00006 / 5) * Y);
 }
 
-double Meters2CoordsX(double X)
+double Meters2CoordsX(double X, double spacingX)
 {
 	//return acos((1 / 40075000.0) * X * (360)); //from meters to long
-	return (5 / 111110.0) * acos((0.00006/5) * X);
+	return (spacingX * (0.00000763) * acos((0.00006 / 5) * X));
+	//return (5 / 111110.0) * acos((0.00006/5) * X);
 }

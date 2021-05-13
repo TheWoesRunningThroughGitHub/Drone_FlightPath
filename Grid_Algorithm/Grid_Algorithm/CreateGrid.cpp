@@ -100,7 +100,7 @@ void Auto_Grid_Waypoint_Generator(long double StartLatitud, long double Start_Lo
 				//CoordX2 = CoordX1 + GridSpacing;
 				CoordX1 += GridSpacing;
 				//Translate(CoordX1, CoordY1, CoordX2, CoordY2);
-				CoordX2 += Meters2CoordsX(CoordX1);
+				CoordX2 += Meters2CoordsX(CoordX1, GridSpacing);
 
 
 				Grid1.WaySet(ArrCount, CoordY2, CoordX2, Start_Altitud);
@@ -116,7 +116,7 @@ void Auto_Grid_Waypoint_Generator(long double StartLatitud, long double Start_Lo
 			{
 				CoordX1 -= GridSpacing;
 				//Translate(CoordX1, CoordY1, CoordX2, CoordY2);
-				CoordX2 -= Meters2CoordsX(CoordX1);
+				CoordX2 -= Meters2CoordsX(CoordX1, GridSpacing);
 
 
 				Grid1.WaySet(ArrCount, CoordY2, CoordX2, Start_Altitud);
@@ -136,7 +136,7 @@ void Auto_Grid_Waypoint_Generator(long double StartLatitud, long double Start_Lo
 			CoordY1 += GridSpacing;
 
 			//Translate(CoordX1, CoordY1, CoordX2, CoordY2);
-			CoordY2 += Meters2CoordsY(CoordY1);
+			CoordY2 += Meters2CoordsY(CoordY1, GridSpacing);
 			Grid1.WaySet(ArrCount, CoordY2, CoordX2, Start_Altitud);
 			//Grid1.WaySet(ArrCount, CoordY1, CoordX1, Start_Altitud); //test
 			//cout << Grid1.WayArr[ArrCount] << "  " << ArrCount << endl; //Test

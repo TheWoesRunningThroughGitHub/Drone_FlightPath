@@ -1,7 +1,7 @@
 //****************************************************
 // File: Main.cpp
 //
-// Purpose: Simple command to create a grid
+// Purpose: Ceate a grid
 //
 // Written By: David Wan & Diego Cordova
 //
@@ -22,7 +22,7 @@ using namespace std;
 int main()
 {
 	long double Lat=0.00, Lon=0.00 , Alt=1.00; //latitude, longitude, altitude
-	//long double H_Lat = 0.00, H_Lon = 0.00, H_Alt = 0.00; //latitude, longitude, altitude
+	long double H_Lat = 0.00, H_Lon = 0.00, H_Alt = 0.00; //latitude, longitude, altitude
 
 	int GridPoints = 0; //tracks number of points that need to be made
 
@@ -62,9 +62,9 @@ int main()
 	//cout << setprecision(14) << Lat << "  " << Lon << "  " << Alt << " " << endl;
 
 	FlightFile << setprecision(d_precise)  << "0	1	0	16	0	0	0	0	" << Lat << "	" << Lon << "	" << Alt << "	1" << endl; //Line 2 (Home Position)
-	//H_Lat = Lat; 
-	//H_Lon = Lon; 
-	//H_Alt = Alt;
+	H_Lat = Lat; 
+	H_Lon = Lon; 
+	H_Alt = Alt;
 
 	//Auto takeoff
 	Alt = 5;

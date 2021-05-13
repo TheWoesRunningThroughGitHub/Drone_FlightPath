@@ -15,8 +15,8 @@ void Auto_Grid_Waypoint_Generator(long double StartLatitud, long double Start_Lo
 double Coords2Meters(double lat1, double lon1, double lat2, double lon2);
 void CreateWaypointFile(int size, long double waypoints[]);
 
-double Meters2CoordsY(double Y);
-double Meters2CoordsX(double X);
+double Meters2CoordsY(double Y, double spacingY);
+double Meters2CoordsX(double X, double spacingX);
 
 //double Meters2Coords(double dist);
 
