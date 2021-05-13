@@ -1,0 +1,7 @@
+﻿  Main.cpp
+c:\users\david\desktop\grid_algorithm\grid_algorithm\main.cpp(64): warning C4244: 'argument': conversion from 'double' to 'std::streamsize', possible loss of data
+c:\users\david\desktop\grid_algorithm\grid_algorithm\main.cpp(94): warning C4244: 'argument': conversion from 'double' to 'std::streamsize', possible loss of data
+c:\users\david\desktop\grid_algorithm\grid_algorithm\main.cpp(99): warning C4244: 'argument': conversion from 'double' to 'std::streamsize', possible loss of data
+c:\users\david\desktop\grid_algorithm\grid_algorithm\main.cpp(104): warning C4244: 'argument': conversion from 'double' to 'std::streamsize', possible loss of data
+c:\users\david\desktop\grid_algorithm\grid_algorithm\main.cpp(111): warning C4244: 'argument': conversion from 'double' to 'std::streamsize', possible loss of data
+  Grid_Algorithm.vcxproj -> C:\Users\David\Desktop\Grid_Algorithm\Debug\Grid_Algorithm.exe
