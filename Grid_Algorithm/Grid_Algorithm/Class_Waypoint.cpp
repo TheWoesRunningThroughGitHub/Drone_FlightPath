@@ -55,6 +55,19 @@ void Waypoint::WaySet(int index, long double New_latitud, long double New_longit
 	}
 }
 
+void Waypoint::WayGet(int index, long double& New_latitud, long double& New_longitud)	//Gets the values at the given index to the given point
+{
+	if (index < 0 || index >= WaySize)	//detects if the index value is a valid index number
+	{
+		cout << "Invalid Index Number\n";	//Informs user the given index number used was invalid
+	}
+	{
+		New_latitud = WayArr[index].GetLat();
+		New_longitud = WayArr[index].GetLon();
+		//New_altitud = WayArr[index].GetAlt();
+	}
+}
+
 void Waypoint::WayGet(int index, long double& New_latitud, long double& New_longitud, long double& New_altitud)	//Gets the values at the given index to the given point
 {
 	if (index < 0 || index >= WaySize)	//detects if the index value is a valid index number

@@ -21,13 +21,14 @@ using namespace std;
 
 int main()
 {
-	long double Lat=0.00, Lon=0.00 , Alt=1.00; //latitude, longitude, altitude
+	long double Lat=0.00, Lon=0.00 , Alt=1.00, Mv_Up = 0.0; //latitude, longitude, altitude, move_up
 	long double H_Lat = 0.00, H_Lon = 0.00, H_Alt = 0.00; //latitude, longitude, altitude
 
 	int GridPoints = 0; //tracks number of points that need to be made
 
-
-	double d_time = 2.0, d_precise = 20; //quick changes
+	//quick changes
+	double d_time = 2.0; 
+	int d_precise = 20; 
 
 	Waypoint FlightGrid;
 
@@ -47,7 +48,7 @@ int main()
 
 	
 	ofstream FlightFile; //create waypoint file
-	FlightFile.open("FlightPath_2.waypoints");
+	FlightFile.open("FlightPath_0.waypoints");
 
 	if (!FlightFile) //In case of issue, output error
 	{
@@ -62,57 +63,69 @@ int main()
 	//cout << setprecision(14) << Lat << "  " << Lon << "  " << Alt << " " << endl;
 
 	FlightFile << setprecision(d_precise)  << "0	1	0	16	0	0	0	0	" << Lat << "	" << Lon << "	" << Alt << "	1" << endl; //Line 2 (Home Position)
+	//0.00000000
+
 	H_Lat = Lat; 
 	H_Lon = Lon; 
 	H_Alt = Alt;
-
-	//Auto takeoff
-	Alt = 5;
-	FlightFile << "1	0	3	22	0	0	0	0	0	 0 	" << Alt << "	1" << endl; //Line 3 (Launch)
-
 
 	cout << endl << "Begin grid:" << endl;
 	cout << "Input Starting Altitude: ";
 	cin >> Alt;
 
-	Auto_Grid_Waypoint_Generator(Lat, Lon, Alt, GridPoints, FlightGrid); //begin filling grid
+	//Auto takeoff
+	//Alt = 5;//test
+	FlightFile << "1	0	3	22	0	0	0	0	0	 0 	" << Alt << "	1" << endl; //Line 3 (Launch)
+
+	Auto_Grid_Waypoint_Generator(Lat, Lon, Alt, GridPoints, Mv_Up, FlightGrid); //begin filling grid
 
 	//cout << FlightGrid << endl;
 	//cout << Auto_Grid_Waypoint_Generator(Lat, Lon, Alt, GridPoints);
 
+
+
 	//Begin inserting points
 	int Act = 2;
-	//while ()
-	for (int j = 0; j < GridPoints; j++)
+
+	//Loop
+	for (int i = 0; i < GridPoints; i++)
 	{
-		//Lat = *FlightGrid.WayArr[j].latitud;
-		//Lon = FlightGrid.WayArr[j].GetLon();
 
-		FlightGrid.WayGet(j, Lat, Lon, Alt);
+		for (int j = 0; j < GridPoints; j++)
+		{
+			//Lat = *FlightGrid.WayArr[j].latitud;
+			//Lon = FlightGrid.WayArr[j].GetLon();
 
-		//Waypoint
-		FlightFile << setprecision(d_precise) << Act << "	0	3	16	0	0	0	0	" << Lat << "	" << Lon << "	" << Alt << "	1" << endl;
-		//note - 16 is the waypoint command action
-		Act++; //increases to create the next line
+			//FlightGrid.WayGet(j, Lat, Lon, Alt);
+			FlightGrid.WayGet(j, Lat, Lon);
 
-		//Signal 
-		FlightFile << setprecision(d_precise) << Act << "	0	3	206	0.00000000	0.00000000	0.00000000	0.00000000	0.00000000	0.00000000	" << Alt << "	1" << endl;
-		//note - 206 is the signal output command action
-		Act++; //increases to create the next line
+			//Waypoint
+			FlightFile << setprecision(d_precise) << Act << "	0	3	16	0	0	0	0	" << Lat << "	" << Lon << "	" << Alt << "	1" << endl;
+			//note - 16 is the waypoint command action
+			Act++; //increases to create the next line
 
-		//Loiter
-		FlightFile << setprecision(d_precise) << Act << "	0	3	19	"<< d_time <<"	0.00000000	0.00000000	0.00000000	" << Lat << "	" << Lon << "	" << Alt << "	1" << endl;
-		//note - 19 is the loiter command action
-		Act++; //increases to create the next line
+			//Signal 
+			FlightFile << setprecision(d_precise) << Act << "	0	3	206	0	0	0	0	0	0	" << Alt << "	1" << endl;
+			//note - 206 is the signal output command action
+			Act++; //increases to create the next line
 
+			//Loiter
+			FlightFile << setprecision(d_precise) << Act << "	0	3	19	" << d_time << "	0	0	0	" << Lat << "	" << Lon << "	" << Alt << "	1" << endl;
+			//note - 19 is the loiter command action
+			Act++; //increases to create the next line
+
+		}
+
+		Alt = Mv_Up + Alt; //creates box
+		//Alt += Mv_Up;
 	}
 
 	//Return to launch
 	FlightFile << setprecision(d_precise) << Act << "	0	3	20	0	0	0	0	0	0	0	1" << endl;
-	 
+
 	// //Land
 	//FlightFile << Act << "	0	3	21	0.00000000	0.00000000	0.00000000	0.00000000	" << H_Lat << "	" << H_Lon << "	1.000000	1" << endl;
-	
+
 
 	FlightFile.close();
 	

@@ -28,6 +28,7 @@ public:
 
 	void WaySet(int index, long double New_longitud, long double New_latitud, long double New_altitud); //setter
 	void WayGet(int index, long double& New_latitud, long double& New_longitud, long double& New_altitud); //Getter
+	void WayGet(int index, long double& New_latitud, long double& New_longitud); //Getter
 
 	Waypoint&  operator=(const Waypoint& orig);
 	friend ostream& operator<<(ostream& out, const Waypoint& overload);

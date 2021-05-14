@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void Auto_Grid_Waypoint_Generator(long double StartLatitud, long double Start_Longitud, long double Start_Altitud, int& Grid_Waypoints, Waypoint& Main_Grid)
+void Auto_Grid_Waypoint_Generator(long double StartLatitud, long double Start_Longitud, long double Start_Altitud, int& Grid_Waypoints, long double& Grid_Space, Waypoint& Main_Grid)
 {
 	long double CoordX1, CoordY1;
 	long double CoordX2 = 0, CoordY2 = 0;
@@ -57,19 +57,15 @@ void Auto_Grid_Waypoint_Generator(long double StartLatitud, long double Start_Lo
 		}
 	}
 
+	Grid_Space = GridSpacing;
 	
 	//---------------------------
 	//Calculate number of points
 	int PntNum = (int)(((GridSize_Length / GridSpacing) + 1) * ((GridSize_Length / GridSpacing) + 1));
 	Grid_Waypoints = PntNum;
-
 	//cout << PntNum << endl; //test
-
-	//cout << PntNum << endl;
 	//---------------------------
 
-	//build grid
-	
 	//Create grid
 	//Waypoint Grid1(PntNum);
 	Waypoint Grid1;

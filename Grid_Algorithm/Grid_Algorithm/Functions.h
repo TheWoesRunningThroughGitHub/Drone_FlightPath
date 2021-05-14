@@ -11,7 +11,9 @@
 using namespace std;
 
 void ReadHomeLocation(long double& Start_Latitude, long double& Start_Longitud);
-void Auto_Grid_Waypoint_Generator(long double StartLatitud, long double Start_Longitud, long double Start_Altitud, int& Grid_Waypoints, Waypoint& Main_Grid);
+//void Auto_Grid_Waypoint_Generator(long double StartLatitud, long double Start_Longitud, long double Start_Altitud, int& Grid_Waypoints, Waypoint& Main_Grid);
+void Auto_Grid_Waypoint_Generator(long double StartLatitud, long double Start_Longitud, long double Start_Altitud, int& Grid_Waypoints, long double& Grid_Space, Waypoint& Main_Grid);
+
 double Coords2Meters(double lat1, double lon1, double lat2, double lon2);
 void CreateWaypointFile(int size, long double waypoints[]);
 
